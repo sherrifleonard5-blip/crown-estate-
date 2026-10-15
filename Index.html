@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Crown Estate Investment — property sales, rentals and real estate investment opportunities.">
+<title>Crown Estate Investment</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green: #173b35;
+  --dark: #102724;
+  --gold: #c6a46b;
+  --cream: #f7f5ef;
+  --white: #ffffff;
+  --text: #27332f;
+  --muted: #6b7771;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  width: min(1150px, 92%);
+  margin: auto;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  color: white;
+  border-bottom: 1px solid #ffffff35;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.logo small {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: white;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  font-size: 12px;
+}
+
+nav a:hover { color: var(--gold); }
+
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+.btn-outline {
+  border: 1px solid white;
+  color: white;
+}
+
+.hero {
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  color: white;
+  background:
+    linear-gradient(90deg, #102724eF, #10272499, #10272425),
+    url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85')
+    center/cover;
+}
+
+.hero-content {
+  padding-top: 80px;
+  max-width: 730px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 17px;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  margin-bottom: 24px;
+}
+
+.hero p {
+  max-width: 560px;
+  color: #e3e9e5;
+  margin-bottom: 30px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+section { padding: 85px 0; }
+
+.about { background: var(--cream); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+h2 {
+  font-size: clamp(32px, 4vw, 46px);
+  margin-bottom: 20px;
+}
+
+p { margin-bottom: 16px; }
+
+.muted { color: var(--muted); font-size: 14px; }
+
+.section-heading {
+  margin-bottom: 35px;
+  max-width: 680px;
+}
+
+.service-grid, .property-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.service {
+  border: 1px solid #e2e7e2;
+  padding: 28px;
+}
+
+.number {
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+}
+
+.service h3 {
+  font-size: 23px;
+  margin: 15px 0;
+}
+
+.featured {
+  background: var(--green);
+  color: white;
+}
+
+.featured .muted { color: #d3ddd7; }
+
+.property {
+  background: white;
+  color: var(--text);
+}
+
+.property img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+.property-body { padding: 22px; }
+
+.tag {
+  color: #947344;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.property h3 {
+  font-size: 23px;
+  margin: 8px 0;
+}
+
+.property p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.link {
+  color: var(--green);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.notice {
+  font-size: 11px;
+  color: #d3ddd7;
+  margin-top: 22px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.step {
+  border-top: 2px solid var(--gold);
+  padding-top: 20px;
+}
+
+.step h3 { margin-bottom: 10px; }
+
+.contact { background: var(--cream); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.contact-box {
+  background: white;
+  padding: 28px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d8dfd9;
+  margin-bottom: 16px;
+  font: inherit;
+  font-size: 13px;
+  background: white;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.contact-box button { width: 100%; }
+
+.email {
+  overflow-wrap: anywhere;
+  color: var(--green);
+  font-weight: bold;
+}
+
+footer {
+  background: var(--dark);
+  color: white;
+  padding: 30px 0;
+  font-size: 11px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+@media(max-width: 800px) {
+  nav { display: none; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .service-grid, .property-grid, .steps { grid-template-columns: 1fr 1fr; }
+}
+
+@media(max-width: 520px) {
+  .service-grid, .property-grid, .steps { grid-template-columns: 1fr; }
+  section { padding: 60px 0; }
+  .hero { min-height: 650px; }
+  .about img { height: 300px; }
+  .contact-box { padding: 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">
+      CROWN ESTATE
+      <small>INVESTMENT & PROPERTY</small>
+    </a>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#properties">Properties</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="btn btn-gold">LET'S CONNECT ↗</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="eyebrow">Property • People • Possibility</div>
+
+      <h1>Find the right property. Build your next opportunity.</h1>
+
+      <p>
+        Crown Estate Investment connects buyers, renters, sellers and
+        investors with real estate opportunities through professional
+        communication and thoughtful property introductions.
+      </p>
+
+      <div class="actions">
+        <a href="#properties" class="btn btn-gold">EXPLORE PROPERTIES ↗</a>
+        <a href="#contact" class="btn btn-outline">CONTACT US</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <img
+        src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85"
+        alt="Contemporary residential property">
+
+      <div>
+        <div class="eyebrow">Who we are</div>
+        <h2>Real estate connections built on clarity and trust.</h2>
+
+        <p class="muted">
+          Every property goal is different. You may be searching for a
+          home, looking for a rental, preparing to sell, or exploring a
+          property investment.
+        </p>
+
+        <p class="muted">
+          Our goal is to help you explore opportunities, understand
+          relevant property information, and connect with interested
+          parties where there is a potential fit.
+        </p>
+
+        <a href="#contact" class="link">Tell us what you need ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Our services</div>
+        <h2>Property solutions for different goals.</h2>
+        <p class="muted">
+          Whether you are buying, selling, renting, or investing,
+          we welcome the opportunity to discuss your requirements.
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service">
+          <div class="number">01</div>
+          <h3>Buying & Selling</h3>
+          <p class="muted">
+            Explore property opportunities and connect with prospective
+            buyers, sellers, owners, or authorized representatives.
+          </p>
+        </article>
+
+        <article class="service">
+          <div class="number">02</div>
+          <h3>Property Rentals</h3>
+          <p class="muted">
+            Discover rental opportunities and begin conversations
+            about available properties and leasing requirements.
+          </p>
+        </article>
+
+        <article class="service">
+          <div class="number">03</div>
+          <h3>Real Estate Investment</h3>
+          <p class="muted">
+            Discuss property investment opportunities, review available
+            details, and connect with relevant parties.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured" id="properties">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Explore opportunities</div>
+        <h2>Discover your next property opportunity.</h2>
+        <p class="muted">
+          Browse the property categories below and contact us to discuss
+          your requirements.
+        </p>
+      </div>
+
+      <div class="property-grid">
+        <article class="property">
+          <img
+            src="https://images.unsplash.com/photo-1600598931-2b7c8f3f2b8b?auto=format&fit=crop&w=900&q=85"
+            alt="Modern house for sale">
+
+          <div class="property-body">
+            <div class="tag">Residential</div>
+            <h3>Homes for Sale</h3>
+            <p>
+              Explore residential property opportunities for different
+              lifestyles and budgets.
+            </p>
+            <a class="link" href="#contact">Enquire about buying ↗</a>
+          </div>
+        </article>
+
+        <article class="property">
+          <img
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85"
+            alt="Contemporary home">
+
+          <div class="property-body">
+            <div class="tag">Leasing</div>
+            <h3>Rental Properties</h3>
+            <p>
+              Contact us to discuss rental needs, locations, and
+              potential property options.
+            </p>
+            <a class="link" href="#contact">Enquire about renting ↗</a>
+          </div>
+        </article>
+
+        <article class="property">
+          <img
+            src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=85"
+            alt="Modern home interior">
+
+          <div class="property-body">
+            <div class="tag">Investment</div>
+            <h3>Investment Properties</h3>
+            <p>
+              Start a conversation about property details, financial
+              considerations, and investment objectives.
+            </p>
+            <a class="link" href="#contact">Discuss an opportunity ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="notice">
+        Note: These images are illustrative examples, not verified
+        property listings. Availability, ownership, location and pricing
+        must be confirmed independently.
+      </p>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Our approach</div>
+        <h2>A clear process from enquiry to introduction.</h2>
+      </div>
+
+      <div class="steps">
+        <article class="step">
+          <h3>01. Understand your needs</h3>
+          <p class="muted">
+            Tell us your preferred location, budget, timeline, and
+            property goals.
+          </p>
+        </article>
+
+        <article class="step">
+          <h3>02. Review the details</h3>
+          <p class="muted">
+            Discuss relevant property information and confirm ownership,
+            authority, terms, and other important details.
+          </p>
+        </article>
+
+        <article class="step">
+          <h3>03. Make the connection</h3>
+          <p class="muted">
+            Where there is a suitable fit, coordinate the next
+            conversation with the relevant party.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <div class="eyebrow">Get in touch</div>
+        <h2>Let's discuss your next property opportunity.</h2>
+
+        <p class="muted">
+          Are you buying, selling, renting, or exploring a real estate
+          investment? Send us an enquiry and tell us what you need.
+        </p>
+
+        <p><strong>Email us</strong></p>
+        <a class="email"
+           href="mailto:crownestateinvestment.property@gmail.com">
+          crownestateinvestment.property@gmail.com
+        </a>
+
+        <p class="muted" style="margin-top:24px">
+          Professional communication. Property connections.
+          Opportunities for your next step.
+        </p>
+      </div>
+
+      <form class="contact-box" id="contactForm">
+        <label for="name">Your name</label>
+        <input id="name" name="name" required placeholder="Full name">
+
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" required
+               placeholder="you@example.com">
+
+        <label for="interest">What are you interested in?</label>
+        <select id="interest" name="interest" required>
+          <option value="">Choose an option</option>
+          <option>Buying a property</option>
+          <option>Selling a property</option>
+          <option>Renting a property</option>
+          <option>Property investment</option>
+          <option>Listing or referring a property</option>
+          <option>Other enquiry</option>
+        </select>
+
+        <label for="location">Preferred location</label>
+        <input id="location" name="location"
+               placeholder="City, state, or area">
+
+        <label for="message">Your message</label>
+        <textarea id="message" name="message"
+                  placeholder="Tell us about your requirements..."></textarea>
+
+        <button class="btn btn-gold" type="submit">
+          SEND YOUR ENQUIRY ↗
+        </button>
+
+        <p class="muted" style="font-size:10px;margin:12px 0 0">
+          Submitting opens your email app with the enquiry prepared.
+        </p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <strong style="color:var(--gold)">CROWN ESTATE INVESTMENT</strong>
+      <p style="margin:5px 0 0">Property • People • Possibility</p>
+    </div>
+    <div>© <span id="year">2026</span> Crown Estate Investment</div>
+    <div>Property information should be independently verified.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const form = new FormData(this);
+
+  const subject = encodeURIComponent(
+    "Property Enquiry - Crown Estate Investment"
+  );
+
+  const body = encodeURIComponent(
+    "Name: " + form.get("name") +
+    "\nEmail: " + form.get("email") +
+    "\nInterest: " + form.get("interest") +
+    "\nPreferred location: " + (form.get("location") || "Not specified") +
+    "\n\nMessage:\n" + (form.get("message") || "No additional message")
+  );
+
+  window.location.href =
+    "mailto:crownestateinvestment.property@gmail.com" +
+    "?subject=" + subject + "&body=" + body;
+});
+</script>
+
+</body>
+  </html>
+          
